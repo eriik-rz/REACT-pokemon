@@ -1,0 +1,103 @@
+
+/* Estilos simplificados pensados para estar sobre fondo negro
+   - Paleta clara sobre negro
+   - Diseño minimal: borde sutil, padding pequeño, hover leve
+*/
+
+:root{
+  --card-bg: rgba(255,255,255,0.03); /* ligeramente más claro que el fondo */
+  --card-border: rgba(255,255,255,0.06);
+  --text: #ffffff;
+  --muted: rgba(255,255,255,0.75);
+  --accent: #6b8cff;
+  --radius: 10px;
+  --pad: 0.75rem;
+}
+
+.pokemon-card{
+  list-style: none;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: var(--pad);
+  width: 200px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.pokemon-card:hover{
+  transform: translateY(-4px) scale(1.01);
+}
+
+.pokemon-name{
+  margin: 0;
+  font-size: 1rem;
+  text-transform: capitalize;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.pokemon-img{
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  transition: transform 220ms ease;
+}
+
+.pokemon-card:hover .pokemon-img{
+  transform: translateY(-6px);
+}
+
+.text{
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Badge sencillo para tipos */
+.type-badge{
+  display: inline-block;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+/* colores simples para badges (útil si añades la clase al li o al badge) */
+.type-fire{ background: #ff7a42; }
+.type-water{ background: #4da6ff; }
+.type-grass{ background: #66d17a; }
+.type-electric{ background: #ffd24d; color: #111; }
+.type-psychic{ background: #ff77c7; }
+.type-dark{ background: #8b6b5a; }
+.type-steel{ background: #9fb3c8; color: #111; }
+.type-default{ background: rgba(255,255,255,0.06); }
+
+/* Centrado de lista */
+.pokemon-list-centered{
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Foco accesible simple */
+.pokemon-card:focus{
+  outline: 2px solid rgba(107,140,255,0.18);
+  outline-offset: 3px;
+}
+
+@media (max-width: 440px){
+  .pokemon-card{ width: 160px; padding: 0.6rem; }
+  .pokemon-img{ width: 96px; height: 96px; }
+  .pokemon-name{ font-size: 0.95rem; }
+}
+
+
